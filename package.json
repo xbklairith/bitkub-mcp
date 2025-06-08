@@ -1,0 +1,64 @@
+{
+  "name": "bitkub-mcp-server",
+  "version": "0.2.0",
+  "description": "🚨 UNOFFICIAL MCP server for Bitkub cryptocurrency exchange public API - NOT affiliated with Bitkub - Use at your own risk",
+  "main": "dist/index.js",
+  "bin": {
+    "bitkub-mcp": "dist/index.js"
+  },
+  "type": "module",
+  "files": ["dist/**/*", "README.md", "LICENSE"],
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "lint": "biome check --write .",
+    "format": "biome format --write .",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist coverage",
+    "setup:claude": "node scripts/setup-claude.js",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xbklairith/bitkub-mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "bitkub",
+    "cryptocurrency",
+    "exchange",
+    "api",
+    "market-data",
+    "trading",
+    "ai",
+    "assistant",
+    "unofficial",
+    "community",
+    "third-party"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xbklairith/bitkub-mcp/issues"
+  },
+  "homepage": "https://github.com/xbklairith/bitkub-mcp#readme",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.15.30",
+    "@vitest/coverage-v8": "^3.2.2",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.2"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "axios": "^1.9.0"
+  }
+}
