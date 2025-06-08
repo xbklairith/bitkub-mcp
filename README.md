@@ -4,27 +4,10 @@
 
 A Model Context Protocol (MCP) server that provides access to Bitkub cryptocurrency exchange public market data. No API keys needed, just real-time crypto data in your AI conversations.
 
-## ⚠️ Important Disclaimer
+## 🎯 MCP Setup
 
-**🚨 THIS IS NOT AN OFFICIAL BITKUB PRODUCT 🚨**
+** npx (Recommended)**
 
-This is an **unofficial, community-built tool** that uses Bitkub's public API endpoints. It is **NOT affiliated with, endorsed by, or supported by Bitkub** in any way.
-
-**⚠️ IMPORTANT WARNINGS:**
-- **Do Your Own Research (DYOR)** - Never make trading decisions based solely on this data
-- **Not Financial Advice** - This tool provides market data only, not investment recommendations  
-- **Use at Your Own Risk** - The creators are not responsible for any trading losses
-- **Verify All Data** - Always cross-check with official Bitkub sources before trading
-- **API Limitations** - This tool may break if Bitkub changes their public API
-
-**✅ Official Bitkub Resources:**
-- Website: [bitkub.com](https://www.bitkub.com)
-- Official API: [github.com/bitkub/bitkub-official-api-docs](https://github.com/bitkub/bitkub-official-api-docs)
-- Support: [support.bitkub.com](https://support.bitkub.com)
-
-## 🎯 Super Easy Setup (30 seconds)
-
-**Option 1: Zero Downloads (Recommended)**
 ```json
 {
   "mcpServers": {
@@ -36,49 +19,40 @@ This is an **unofficial, community-built tool** that uses Bitkub's public API en
 }
 ```
 
-**Option 2: One-Line Install**
-```bash
-curl -fsSL https://raw.githubusercontent.com/xbklairith/bitkub-mcp/main/scripts/install.sh | bash
-```
-
-### Where to Add Config
-
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-- **Linux**: `~/.config/Claude/claude_desktop_config.json`
-
-👉 **[Interactive Config Generator](config-generator.html)** - Visual guide with copy-paste
 
 > Paste config → Restart Claude → Ask: "What's the Bitcoin price?" → Done! 🎉
 
 ## 🛠️ Available Tools
 
-| Tool | Description |
-|------|-------------|
-| 📊 `bitkub_ticker` | Current prices for any trading pair |
-| 📋 `bitkub_market_symbols` | All 149+ available trading pairs |
-| 🪙 `bitkub_coins` | Cryptocurrency info with deposit/withdraw status |
-| 📈 `bitkub_orderbook` | Buy/sell order book depth |
-| 💱 `bitkub_trades` | Recent trade history |
-| 🕐 `bitkub_servertime` | Server timestamp |
-| ⚡ `bitkub_batch_ticker` | Multiple symbols with analysis |
-| 📏 `bitkub_spread_analysis` | Bid-ask spread analysis |
-| 📤 `bitkub_export` | Export data (CSV, JSON, table) |
+| Tool                        | Description                                      |
+| --------------------------- | ------------------------------------------------ |
+| 📊 `bitkub_ticker`          | Current prices for any trading pair              |
+| 📋 `bitkub_market_symbols`  | All 149+ available trading pairs                 |
+| 🪙 `bitkub_coins`           | Cryptocurrency info with deposit/withdraw status |
+| 📈 `bitkub_orderbook`       | Buy/sell order book depth                        |
+| 💱 `bitkub_trades`          | Recent trade history                             |
+| 🕐 `bitkub_servertime`      | Server timestamp                                 |
+| ⚡ `bitkub_batch_ticker`    | Multiple symbols with analysis                   |
+| 📏 `bitkub_spread_analysis` | Bid-ask spread analysis                          |
+| 📤 `bitkub_export`          | Export data (CSV, JSON, table)                   |
 
 ## 💬 Example Questions for Claude
 
 **Basic Queries:**
+
 - "What's the current Bitcoin price on Bitkub?"
 - "Show me all available trading pairs"
 - "Which coins can I deposit or withdraw?"
 - "Get the order book for Ethereum"
 
 **Market Analysis:**
+
 - "Which cryptocurrencies have the highest volume?"
 - "Show me the bid-ask spreads for major coins"
 - "Which trading pairs have the tightest spreads?"
 
 **Advanced Analytics:**
+
 - "Compare BTC, ETH, and ADA performance"
 - "Export the top 10 cryptocurrencies to a table"
 - "Show me low-volume trading pairs"
@@ -95,6 +69,7 @@ curl -fsSL https://raw.githubusercontent.com/xbklairith/bitkub-mcp/main/scripts/
 ## 🔧 For Developers
 
 ### Quick Development Setup
+
 ```bash
 git clone https://github.com/xbklairith/bitkub-mcp.git
 cd bitkub-mcp
@@ -103,6 +78,7 @@ npm run setup:claude  # Auto-configure Claude
 ```
 
 ### Development Commands
+
 ```bash
 npm run dev          # Development mode
 npm test            # Run tests
@@ -111,6 +87,7 @@ npm run typecheck   # Type checking
 ```
 
 ### Direct API Usage
+
 ```bash
 # List tools
 echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/list"}' | node dist/index.js
@@ -120,6 +97,7 @@ echo '{"jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": {"name": "bi
 ```
 
 ### Project Structure
+
 ```
 src/
 ├── index.ts              # MCP server entry point
@@ -132,28 +110,14 @@ src/
 ## 📊 Examples
 
 Run these after building:
+
 ```bash
 node examples/basic-usage.js      # Core functionality demo
 node examples/market-monitor.js   # Real-time BTC monitoring
 node examples/advanced-analysis.js # Market analysis demo
 ```
 
-## 🆘 Troubleshooting
-
-**Claude doesn't respond to crypto questions?**
-- Restart Claude Desktop completely
-- Check config file path for your OS
-- Ensure config JSON is valid
-
-**Build/setup issues?**
-- Install Node.js 18+ from [nodejs.org](https://nodejs.org/)
-- Try: `rm -rf node_modules && npm install`
-
-**Config file doesn't exist?**
-- Create the file manually at the path shown above
-- Use the interactive config generator
-
-## 🏗️ Architecture
+## 🛠️ Tech Stack
 
 - **TypeScript** with strict mode
 - **MCP SDK** for protocol compliance
@@ -161,6 +125,26 @@ node examples/advanced-analysis.js # Market analysis demo
 - **Token bucket** rate limiting
 - **Biome** for linting/formatting
 - **Vitest** for testing (18 tests, full coverage)
+
+## ⚠️ Important Disclaimer
+
+**🚨 THIS IS NOT AN OFFICIAL BITKUB PRODUCT 🚨**
+
+This is an **unofficial, community-built tool** that uses Bitkub's public API endpoints. It is **NOT affiliated with, endorsed by, or supported by Bitkub** in any way.
+
+**⚠️ IMPORTANT WARNINGS:**
+
+- **Do Your Own Research (DYOR)** - Never make trading decisions based solely on this data
+- **Not Financial Advice** - This tool provides market data only, not investment recommendations
+- **Use at Your Own Risk** - The creators are not responsible for any trading losses
+- **Verify All Data** - Always cross-check with official Bitkub sources before trading
+- **API Limitations** - This tool may break if Bitkub changes their public API
+
+**✅ Official Bitkub Resources:**
+
+- Website: [bitkub.com](https://www.bitkub.com)
+- Official API: [github.com/bitkub/bitkub-official-api-docs](https://github.com/bitkub/bitkub-official-api-docs)
+- Support: [support.bitkub.com](https://support.bitkub.com)
 
 ## 📄 License
 
@@ -177,4 +161,4 @@ MIT
 
 **Ready to explore crypto data with Claude!** 🚀
 
-Need help? Check the [config generator](config-generator.html) or open an issue.
+Need help? Open an issue on GitHub.
